@@ -39,8 +39,21 @@ public class Controller_menu implements ActionListener{
         view.setLocationRelativeTo(null);
     }
     
+    
+    /*
+        This makes that 
+    */
+    @Override
     public void actionPerformed(ActionEvent e)
     {
-        model.set
+        if(e.getSource() == view.btn_play)
+        {
+            
+        }
+        else 
+        {
+            System.exit(0);
+            //view.setVisible(false);
+        }
     }
 }

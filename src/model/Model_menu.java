@@ -9,6 +9,8 @@ package model;
  *
  * @author Bagansio
  */
+
+// Creates a Model_menu
 public class Model_menu 
 {
     
