@@ -8,6 +8,7 @@ package snake;
 import controller.Controller_menu;
 import model.Model_menu;
 import view.View_menu;
+import view.View_test;
 
 /**
  *
@@ -23,10 +24,12 @@ public class Snake {
         
         Model_menu mod = new Model_menu();
         View_menu view = new View_menu();
+        View_test viewT = new View_test();
         
-        Controller_menu ctrl = new Controller_menu(view,mod);
+        Controller_menu ctrl = new Controller_menu(view,viewT,mod);
         ctrl.start();
         view.setVisible(true);
+        
         
     }
     
