@@ -7,9 +7,10 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.Model_menu;
+import model.Model;
+import view.View_G;
 import view.View_menu;
-import view.View_test;
+import view.View_Game;
 
 /**
  *
@@ -18,28 +19,27 @@ import view.View_test;
 public class Controller_menu implements ActionListener{
     
     private View_menu view;
-    private Model_menu model;
-    private View_test viewT;
+    private Controller_game ctrl;
     
     /*
         This creator makes a controller with a view and a model and put two listeners into the buttons of the view
-    PRE: a View_menu && Model_menu
+    PRE: a View_menu && Model
     POST: A Controller_menu its created
     */
-    public Controller_menu(View_menu view, View_test viewT, Model_menu model)
+    public Controller_menu()
     {
-        this.view = view;
-        this.model = model;
-        this.viewT = viewT;
+        view = new View_menu();
+        ctrl = new Controller_game();
         this.view.btn_play.addActionListener(this);
         this.view.btn_exit.addActionListener(this);
-        this.viewT.btn_back.addActionListener(this);
     }
     
     public void start()
     {
         view.setTitle("MENU");
         view.setLocationRelativeTo(null);
+        view.setVisible(true);
+        ctrl.start();
     }
     
     
@@ -52,12 +52,7 @@ public class Controller_menu implements ActionListener{
         if(e.getSource() == view.btn_play)
         {
             view.setVisible(false);
-            viewT.setVisible(true);
-        }
-        if(e.getSource() == viewT.btn_back)
-        {
-            view.setVisible(true);
-            viewT.setVisible(false);
+            ctrl.visiblity(true);
         }
         if(e.getSource() == view.btn_exit)
         {
