@@ -13,31 +13,35 @@ package model;
 // Creates a Model
 public class Model 
 {
-    private char[][] board;
+    private int[][] board;
     boolean fturn;
 
     
     public Model()
     {
-        board = new char[3][3];
+        board = new int[3][3];
         fturn = true;
         for (int i = 3; i < 3; i++) 
         {
             for (int j = 3; j < 3; j++) 
             {
-                board[i][j] = ' ';
+                board[i][j] = 0;
             }
         }
     }
     
-    public char[][] getBoard() {
+    public int[][] getBoard() {
         return board;
     }
 
-    public void setBoard(char[][] board) {
+    public void setBoard(int[][] board) {
         this.board = board;
     }
-
+    public void setSquare(int x, int y)
+    {
+        if (fturn) board[x][y] = 1;
+        else board[x][y] = 2;
+    }
     public boolean isFturn() {
         return fturn;
     }
@@ -48,8 +52,19 @@ public class Model
     
     public boolean empty(int x, int y)
     {
-        if (board[x][y] == ' ') return true;
-        return false;
+        return board[x][y] == 0;
+    }
+    
+    public boolean draw()
+    {
+        for (int i = 0; i < 3; i++) 
+        {
+            for (int j = 0; j < 3; j++) 
+            {
+                if (board[i][j] == 0) return false;
+            }
+        }
+        return true;
     }
     
 }

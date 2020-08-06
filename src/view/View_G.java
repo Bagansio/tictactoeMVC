@@ -51,6 +51,10 @@ public class View_G extends javax.swing.JDialog {
         b21 = new javax.swing.JLabel();
         b22 = new javax.swing.JLabel();
         board = new javax.swing.JLabel();
+        btn_restart = new javax.swing.JButton();
+        txt_turn = new javax.swing.JLabel();
+        label_winsO = new javax.swing.JLabel();
+        label_winsX = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,6 +102,18 @@ public class View_G extends javax.swing.JDialog {
 
         board.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/boardd.png"))); // NOI18N
         getContentPane().add(board, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+
+        btn_restart.setText("RESTART");
+        getContentPane().add(btn_restart, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+
+        txt_turn.setText("TURN OF: PLAYER 1 --X--");
+        getContentPane().add(txt_turn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, -1, -1));
+
+        label_winsO.setText("PLAYER 2 (O) WINS: 0");
+        getContentPane().add(label_winsO, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        label_winsX.setText("PLAYER 1 (X) WINS: 0");
+        getContentPane().add(label_winsX, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -168,5 +184,9 @@ public class View_G extends javax.swing.JDialog {
     private javax.swing.JButton btn20;
     private javax.swing.JButton btn21;
     private javax.swing.JButton btn22;
+    private javax.swing.JButton btn_restart;
+    private javax.swing.JLabel label_winsO;
+    private javax.swing.JLabel label_winsX;
+    private javax.swing.JLabel txt_turn;
     // End of variables declaration//GEN-END:variables
 }

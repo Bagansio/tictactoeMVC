@@ -47,6 +47,10 @@ public class View_Game extends javax.swing.JFrame {
         btn21 = new javax.swing.JButton();
         btn22 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
+        btn_restart = new javax.swing.JButton();
+        label_turn = new javax.swing.JLabel();
+        label_winsO = new javax.swing.JLabel();
+        label_winsX = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -82,6 +86,18 @@ public class View_Game extends javax.swing.JFrame {
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/boardd.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 105, -1, -1));
+
+        btn_restart.setText("RESTART");
+        getContentPane().add(btn_restart, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
+
+        label_turn.setText("TURN OF: PLAYER 1 --X--");
+        getContentPane().add(label_turn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 36, -1, 20));
+
+        label_winsO.setText("PLAYER 2 (0) WINS: 0");
+        getContentPane().add(label_winsO, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        label_winsX.setText("PLAYER 1 (X) WINS: 0");
+        getContentPane().add(label_winsX, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -133,7 +149,11 @@ public class View_Game extends javax.swing.JFrame {
     public javax.swing.JButton btn20;
     public javax.swing.JButton btn21;
     public javax.swing.JButton btn22;
+    public javax.swing.JButton btn_restart;
     private javax.swing.JDialog jDialog1;
+    public javax.swing.JLabel label_turn;
+    public javax.swing.JLabel label_winsO;
+    public javax.swing.JLabel label_winsX;
     public javax.swing.JLabel sq00;
     public javax.swing.JLabel sq01;
     public javax.swing.JLabel sq02;

@@ -23,10 +23,7 @@ public class Tictac {
     {
 
         Controller_menu ctrlM = new Controller_menu();
-        ctrlM.start();
-        
-        
-        
+        ctrlM.start();        
     }
     
 }
