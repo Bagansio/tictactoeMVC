@@ -89,8 +89,6 @@ public class Controller_game implements ActionListener {
     public void start() {
         view.setTitle("TICTACTOE");
         view.setLocationRelativeTo(null);
-        viewResult.setTitle("RESULT");
-        viewResult.setLocationRelativeTo(null);
     }
 
     /*
