@@ -18,10 +18,11 @@ import view.View_Game;
  */
 public class Controller_game implements ActionListener {
 
+    private Controller_result ctrl;
     private Model model;
     private View_Game view;
-    JButton[][]  btns;
-    JLabel[][] lbls;
+    private JButton[][]  btns;
+    private JLabel[][] lbls;
     /*
         CREATOR OF THE CONTROLLER GAME
         it starts the view and the model
@@ -30,6 +31,8 @@ public class Controller_game implements ActionListener {
     public Controller_game() {
         view = new View_Game();
         model = new Model();
+        ctrl = new Controller_result(view);
+        
         making_buttons();
         making_labels();
     }
@@ -86,6 +89,8 @@ public class Controller_game implements ActionListener {
     public void start() {
         view.setTitle("TICTACTOE");
         view.setLocationRelativeTo(null);
+        viewResult.setTitle("RESULT");
+        viewResult.setLocationRelativeTo(null);
     }
 
     /*
@@ -109,7 +114,7 @@ public class Controller_game implements ActionListener {
             model.setFturn(!model.isFturn());
             label.setVisible(true);
             change_turn();
-            if (model.draw()) System.exit(0);
+            if (model.draw()) viewResult.setVisible(true);//System.exit(0);
         }
     }
     
