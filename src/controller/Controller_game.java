@@ -21,7 +21,7 @@ public class Controller_game implements ActionListener {
     private Model model;
     private View_Game view;
     JButton[][]  btns;
-
+    JLabel[][] lbls;
     /*
         CREATOR OF THE CONTROLLER GAME
         it starts the view and the model
@@ -30,20 +30,41 @@ public class Controller_game implements ActionListener {
     public Controller_game() {
         view = new View_Game();
         model = new Model();
+        making_buttons();
+        making_labels();
+    }
+    
+    private void making_labels()
+    {
+        lbls = new JLabel[3][3];
+        lbls[0][0] = view.sq00;
+        lbls[0][1] = view.sq01;
+        lbls[0][2] = view.sq02;
+        lbls[1][0] = view.sq10;
+        lbls[1][1] = view.sq11;
+        lbls[1][2] = view.sq12;
+        lbls[2][0] = view.sq20;
+        lbls[2][1] = view.sq21;
+        lbls[2][2] = view.sq22;     
+    }
+    private void making_buttons()
+    {
         btns = new JButton[3][3];
-        
         btns[0][0] = view.btn00;
         btns[0][1] = view.btn01;
         btns[0][2] = view.btn02;
-        start_button(view.btn00);
-        start_button(view.btn01);
-        start_button(view.btn02);
-        start_button(view.btn10);
-        start_button(view.btn11);
-        start_button(view.btn12);
-        start_button(view.btn20);
-        start_button(view.btn21);
-        start_button(view.btn22);
+        btns[1][0] = view.btn10;
+        btns[1][1] = view.btn11;
+        btns[1][2] = view.btn12;
+        btns[2][0] = view.btn20;
+        btns[2][1] = view.btn21;
+        btns[2][2] = view.btn22;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                start_button(btns[i][j]);
+            }
+            
+        }
         view.btn_restart.addActionListener(this);
     }
 
@@ -95,15 +116,13 @@ public class Controller_game implements ActionListener {
     private void restart()
     {
         model = new Model();
-        view.sq00.setVisible(false);
-        view.sq01.setVisible(false);
-        view.sq02.setVisible(false);
-        view.sq10.setVisible(false);
-        view.sq11.setVisible(false);
-        view.sq12.setVisible(false);
-        view.sq20.setVisible(false);
-        view.sq21.setVisible(false);
-        view.sq22.setVisible(false);
+        
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                lbls[i][j].setVisible(false);
+            }
+ 
+        }
         change_turn();
         
     }
@@ -117,43 +136,18 @@ public class Controller_game implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) 
     {
-        if (e.getSource() == view.btn00) 
-        {
-            control_action(view.sq00, 0, 0);
-        } 
-        else if (e.getSource() == view.btn01) 
-        {
-            control_action(view.sq01, 0, 1);
-        } 
-        else if (e.getSource() == view.btn02) 
-        {
-            control_action(view.sq02, 0, 2);
-        } 
-        else if (e.getSource() == view.btn10) 
-        {
-            control_action(view.sq10, 1, 0);
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if(e.getSource() == btns[i][j])
+                {
+                    control_action(lbls[i][j],i,j);
+                    return;
+                }
+                
+            }
+            
         }
-        else if (e.getSource() == view.btn11) 
-        {
-            control_action(view.sq11, 1, 1);
-        } 
-        else if (e.getSource() == view.btn12) 
-        {
-            control_action(view.sq12, 1, 2);
-        } 
-        else if (e.getSource() == view.btn20) 
-        {
-            control_action(view.sq20, 2, 0);
-        } 
-        else if (e.getSource() == view.btn21) 
-        {
-            control_action(view.sq21, 2, 1);
-        } 
-        else if (e.getSource() == view.btn22) 
-        {
-            control_action(view.sq22, 2, 2);
-        }
-        else restart();
+        restart();
     }
 
 }
