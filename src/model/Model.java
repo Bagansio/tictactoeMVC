@@ -55,7 +55,7 @@ public class Model
         return board[x][y] == 0;
     }
     
-    public boolean draw()
+    private boolean draw()
     {
         for (int i = 0; i < 3; i++) 
         {
@@ -67,7 +67,7 @@ public class Model
         return true;
     }
     
-    public boolean win()
+    private boolean win()
     {
         for (int i = 0; i < 3; i++) 
         {
@@ -77,5 +77,16 @@ public class Model
         if (board[0][0] != 0 && board[1][1] == board[0][0] && board[0][0] == board[2][2]) return true;
         if (board[0][2] != 0 && board[1][1] == board[0][2] && board[0][2] == board[2][0]) return true;
         return false;
+    }
+    
+    public int end()
+    {
+        if (win())
+        {
+            if (fturn) return 1;
+            else return 2;
+        }
+        else if (draw()) return 0;
+        return -1;
     }
 }

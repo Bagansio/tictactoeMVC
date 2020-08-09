@@ -31,10 +31,28 @@ public class Controller_result  implements ActionListener{
         view.setTitle("RESULT");
         view.setLocationRelativeTo(null);
     }
+    
+    
+    public void result(int r)
+    {
+        switch (r)
+        {
+            case 0:
+                view.lbl_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/draw.png")));
+                break;
+            case 1:
+                view.lbl_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vico.png")));
+                break;
+            case 2:
+                view.lbl_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vicx.png")));
+                break;
+        }
+    }
     /*
         MAKES VISIBLE OR NOT THE VIEW OF THE GAME
      */
     public void visiblity(boolean b) {
+  
         view.setVisible(b);
     }
 
