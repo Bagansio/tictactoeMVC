@@ -6,9 +6,6 @@
 package tictac;
 
 import controller.Controller_menu;
-import model.Model;
-import view.View_menu;
-import view.View_Game;
 
 /**
  *
@@ -22,8 +19,8 @@ public class Tictac {
     public static void main(String[] args) 
     {
 
-        Controller_menu ctrlM = new Controller_menu();
-        ctrlM.start();        
+        Controller_menu ctrl = new Controller_menu();     
+        ctrl.start();
     }
     
 }

@@ -112,8 +112,14 @@ public class Controller_game implements ActionListener {
             model.setFturn(!model.isFturn());
             label.setVisible(true);
             change_turn();
-            if (model.draw()) viewResult.setVisible(true);//System.exit(0);
+            if (model.draw() || model.win()) finish();
         }
+    }
+    
+    private void finish()
+    {
+        ctrl.visiblity(true);//System.exit(0);
+        restart();
     }
     
     private void restart()
