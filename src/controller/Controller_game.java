@@ -20,6 +20,7 @@ public class Controller_game implements ActionListener {
 
     private Model model;
     private View_Game view;
+    JButton[][]  btns;
 
     /*
         CREATOR OF THE CONTROLLER GAME
@@ -29,6 +30,11 @@ public class Controller_game implements ActionListener {
     public Controller_game() {
         view = new View_Game();
         model = new Model();
+        btns = new JButton[3][3];
+        
+        btns[0][0] = view.btn00;
+        btns[0][1] = view.btn01;
+        btns[0][2] = view.btn02;
         start_button(view.btn00);
         start_button(view.btn01);
         start_button(view.btn02);
@@ -38,6 +44,7 @@ public class Controller_game implements ActionListener {
         start_button(view.btn20);
         start_button(view.btn21);
         start_button(view.btn22);
+        view.btn_restart.addActionListener(this);
     }
 
     /*
@@ -83,6 +90,22 @@ public class Controller_game implements ActionListener {
             change_turn();
             if (model.draw()) System.exit(0);
         }
+    }
+    
+    private void restart()
+    {
+        model = new Model();
+        view.sq00.setVisible(false);
+        view.sq01.setVisible(false);
+        view.sq02.setVisible(false);
+        view.sq10.setVisible(false);
+        view.sq11.setVisible(false);
+        view.sq12.setVisible(false);
+        view.sq20.setVisible(false);
+        view.sq21.setVisible(false);
+        view.sq22.setVisible(false);
+        change_turn();
+        
     }
 
     public void change_turn()
@@ -130,6 +153,7 @@ public class Controller_game implements ActionListener {
         {
             control_action(view.sq22, 2, 2);
         }
+        else restart();
     }
 
 }
