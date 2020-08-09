@@ -22,7 +22,7 @@ public class Controller_result {
         
     }
     
-    public void start()º
+    public void start()
     {
         view.setTitle("RESULT");
         view.setLocationRelativeTo(null);
