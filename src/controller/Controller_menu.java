@@ -7,7 +7,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import view.View_menu;
+import view.View_Menu;
 
 
 /**
@@ -16,17 +16,17 @@ import view.View_menu;
  */
 public class Controller_menu implements ActionListener{
     
-    private View_menu view;
+    private View_Menu view;
     private Controller_game ctrl;
     
     /*
         This creator makes a controller with a view and a model and put two listeners into the buttons of the view
-    PRE: a View_menu && Model
+    PRE: a View_Menu && Model
     POST: A Controller_menu its created
     */
     public Controller_menu()
     {
-        view = new View_menu();
+        view = new View_Menu();
         ctrl = new Controller_game();
         this.view.btn_play.addActionListener(this);
         this.view.btn_exit.addActionListener(this);

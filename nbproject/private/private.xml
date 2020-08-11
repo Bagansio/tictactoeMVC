@@ -5,10 +5,12 @@
         <group>
             <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/controller/Controller_game.java</file>
             <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/view/View_G.java</file>
+            <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/view/View_result.java</file>
             <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/model/Model.java</file>
             <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/view/View_Game.java</file>
-            <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/view/View_menu.java</file>
+            <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/controller/Controller_result.java</file>
             <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/tictac/Tictac.java</file>
+            <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/view/View_Menu.java</file>
             <file>file:/F:/alexm/Repositorios/JAVA/tictac/src/controller/Controller_menu.java</file>
         </group>
     </open-files>

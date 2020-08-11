@@ -15,7 +15,8 @@ public class Model
 {
     private int[][] board;
     boolean fturn;
-
+    static int winx = 0;
+    static int wino = 0;
     
     public Model()
     {
@@ -42,6 +43,14 @@ public class Model
         if (fturn) board[x][y] = 1;
         else board[x][y] = 2;
     }
+    public int getwinx()
+    {
+        return winx;
+    }
+    public int getwino()
+    {
+        return wino;
+    }
     public boolean isFturn() {
         return fturn;
     }
@@ -55,7 +64,7 @@ public class Model
         return board[x][y] == 0;
     }
     
-    public boolean draw()
+    private boolean draw()
     {
         for (int i = 0; i < 3; i++) 
         {
@@ -67,4 +76,34 @@ public class Model
         return true;
     }
     
+    private boolean win()
+    {
+        for (int i = 0; i < 3; i++) 
+        {
+            if (board[i][0] != 0 && board[i][1] == board[i][0] && board[i][0] == board[i][2]) return true;
+            if (board[0][i] != 0 && board[0][i] == board[1][i] && board[0][i] == board[2][i]) return true;         
+        }
+        if (board[0][0] != 0 && board[1][1] == board[0][0] && board[0][0] == board[2][2]) return true;
+        if (board[0][2] != 0 && board[1][1] == board[0][2] && board[0][2] == board[2][0]) return true;
+        return false;
+    }
+    
+    public int end()
+    {
+        if (win())
+        {
+            if (fturn)
+            {
+                ++winx;
+                return 1;
+            }
+            else
+            {
+                ++wino;
+                return 2;
+            }
+        }
+        else if (draw()) return 0;
+        return -1;
+    }
 }
