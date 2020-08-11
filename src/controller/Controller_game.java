@@ -109,22 +109,26 @@ public class Controller_game implements ActionListener {
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/o.png")));
             }
             model.setSquare(x,y);
-            model.setFturn(!model.isFturn());
             label.setVisible(true);
-            finish();
-            change_turn();
+            
+            
+            if(! finish()) change_turn(model.isFturn());
         }
     }
     
-    private void finish()
+    private boolean finish()
     {
         int end = model.end();
         if(end >= 0)
         {
+            if (end == 1) view.label_winsX.setText("PLAYER 1 (X) WINS: " + model.getwinx());
+            else if (end == 2) view.label_winsO.setText("PLAYER 1 (0) WINS: " + model.getwino());
             ctrl.result(end);
             ctrl.visiblity(true);
             restart();
+            return true;
         }
+        return false;
     }
     
     private void restart()
@@ -137,13 +141,15 @@ public class Controller_game implements ActionListener {
             }
  
         }
-        change_turn();
+        //model.setFturn(false);
+        change_turn(false);
         
     }
 
-    public void change_turn()
+    public void change_turn(boolean Xturn)
     {
-        if (model.isFturn()) view.label_turn.setText("TURN OF: PLAYER 1 --X--");
+        model.setFturn(!Xturn);
+        if (!Xturn) view.label_turn.setText("TURN OF: PLAYER 1 --X--");
         else view.label_turn.setText("TURN OF: PLAYER 2 --O--");
     }
     

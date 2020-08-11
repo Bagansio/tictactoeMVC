@@ -8,7 +8,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.View_Game;
-import view.View_Result;
+import view.View_result;
 
 /**
  *
@@ -16,11 +16,11 @@ import view.View_Result;
  */
 public class Controller_result  implements ActionListener{
     
-    private View_Result view;
+    private View_result view;
     
     public Controller_result(View_Game view)
     {
-        this.view = new View_Result(view,true);
+        this.view = new View_result(view,true);
         start();
         this.view.btn_again.addActionListener(this);
         this.view.btn_exit.addActionListener(this);
@@ -41,10 +41,10 @@ public class Controller_result  implements ActionListener{
                 view.lbl_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/draw.png")));
                 break;
             case 1:
-                view.lbl_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vico.png")));
+                view.lbl_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vicx.png")));
                 break;
             case 2:
-                view.lbl_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vicx.png")));
+                view.lbl_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/vico.png")));
                 break;
         }
     }

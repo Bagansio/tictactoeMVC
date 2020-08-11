@@ -15,7 +15,8 @@ public class Model
 {
     private int[][] board;
     boolean fturn;
-
+    static int winx = 0;
+    static int wino = 0;
     
     public Model()
     {
@@ -41,6 +42,14 @@ public class Model
     {
         if (fturn) board[x][y] = 1;
         else board[x][y] = 2;
+    }
+    public int getwinx()
+    {
+        return winx;
+    }
+    public int getwino()
+    {
+        return wino;
     }
     public boolean isFturn() {
         return fturn;
@@ -83,8 +92,16 @@ public class Model
     {
         if (win())
         {
-            if (fturn) return 1;
-            else return 2;
+            if (fturn)
+            {
+                ++winx;
+                return 1;
+            }
+            else
+            {
+                ++wino;
+                return 2;
+            }
         }
         else if (draw()) return 0;
         return -1;
